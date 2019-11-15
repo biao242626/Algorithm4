@@ -28,7 +28,8 @@ public class WeightedQuickUnionUF {
         int pid = find(p);
         if(pid == qid) return;
         else{
-            id[qid] = id[p];//左归
+            if(sz[pid] < sz[qid]) id[pid] = qid;
+            else id[qid] = pid;
         }
         count --;
     }
